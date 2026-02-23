@@ -1,5 +1,5 @@
 export const site = {
-  brand: "EUROUK",
+  brand: "Zephaniah",
   tagline: "Properties",
   nav: [
     { label: "Home", href: "#home" },
@@ -39,7 +39,7 @@ export const site = {
     { name: "Client C", quote: "Sourced the right opportunity quickly and professionally." },
   ],
   contact: {
-    email: "info@eurouk.co.uk",
+    email: "info@zephaniahproperties.co.uk",
     phone: "+44 0000 000000",
     whatsappUrl: "https://wa.me/44XXXXXXXXXX",
     hours: [
