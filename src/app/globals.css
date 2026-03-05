@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-/* ===== ROOT THEME ===== */
+/* ===============================
+   ROOT THEME (LIGHT MODE)
+================================ */
 :root {
   --background: #f8faf8;
   --surface: #ffffff;
@@ -15,27 +17,34 @@
   --border: #e2e8f0;
 }
 
-/* ===== TAILWIND THEME TOKENS ===== */
+/* ===============================
+   TAILWIND TOKEN MAPPING
+================================ */
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
+
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
 
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-accent: var(--accent);
+
   --color-border: var(--border);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-/* ===== DARK MODE ===== */
+/* ===============================
+   DARK MODE
+================================ */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0b1110;
     --surface: #111827;
+
     --foreground: #e5e7eb;
     --muted: #9ca3af;
 
@@ -47,15 +56,20 @@
   }
 }
 
-/* ===== GLOBAL BASE ===== */
+/* ===============================
+   GLOBAL BASE
+================================ */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
   -webkit-font-smoothing: antialiased;
+}
+::-webkit-scrollbar {
+  display: none;
 }

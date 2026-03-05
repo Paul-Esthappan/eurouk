@@ -11,7 +11,7 @@ export const site = {
   hero: {
     headline: "Hustle-free Property Investing & Management",
     subhead:
-      "EUROUK helps investors and landlords with sourcing, refurbishment, and end-to-end management — built for clarity and performance.",
+      "Zephaniah Properties helps investors and landlords with sourcing, refurbishment, and end-to-end management — built for clarity and performance.",
     primaryCta: { label: "Get In Touch", href: "#contact" },
     secondaryCta: { label: "View Services", href: "#services" },
   },
@@ -33,11 +33,43 @@ export const site = {
     ],
     cta: { label: "Contact Us", href: "#contact" },
   },
-  testimonials: [
-    { name: "Client A", quote: "Clear communication and a smooth process end-to-end." },
-    { name: "Client B", quote: "Reliable management with great reporting." },
-    { name: "Client C", quote: "Sourced the right opportunity quickly and professionally." },
-  ],
+  testimonials:[
+  {
+    name: "James Walker",
+    location: "London, UK",
+    role: "Property Owner",
+    quote:
+      "Zephaniah Properties has made renting my property completely hassle-free. Their guaranteed rent service means I receive payments on time every month without worrying about tenants."
+  },
+  {
+    name: "Charlotte Davies",
+    location: "Croydon, UK",
+    role: "Landlord",
+    quote:
+      "Professional and transparent from the beginning. The team handled tenant sourcing, inspections, and maintenance smoothly. I finally have peace of mind as a landlord."
+  },
+  {
+    name: "Daniel Thompson",
+    location: "Birmingham, UK",
+    role: "Property Investor",
+    quote:
+      "Excellent service and clear communication. Zephaniah Properties quickly found reliable tenants and manages everything efficiently."
+  },
+  {
+    name: "Emily Carter",
+    location: "Manchester, UK",
+    role: "Homeowner",
+    quote:
+      "Their property management service is outstanding. I no longer worry about late rent or maintenance issues. Everything is handled professionally."
+  },
+  {
+    name: "Oliver Bennett",
+    location: "Leeds, UK",
+    role: "Landlord",
+    quote:
+      "Very reliable and easy to work with. They maximised my rental income while keeping the whole process simple and stress-free."
+  }
+],
   contact: {
     email: "info@zephaniahproperties.co.uk",
     phone: "+44 0000 000000",
