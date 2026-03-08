@@ -3,8 +3,8 @@ export const site = {
   tagline: "Properties",
   nav: [
     { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
+    { label: "About", href: "#about" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "Contact", href: "#contact" },
   ],
@@ -15,6 +15,33 @@ export const site = {
     primaryCta: { label: "Get In Touch", href: "#contact" },
     secondaryCta: { label: "View Services", href: "#services" },
   },
+  heroSlides: [
+    {
+      desktop: "/images/hero1.png",
+      mobile: "/images/hero1-mobile.jpg",
+      alt: "Luxury apartment exterior",
+    },
+    {
+      desktop: "/images/hero2.jpg",
+      mobile: "/images/hero2-mobile.jpg",
+      alt: "Modern residential tower",
+    },
+    {
+      desktop: "/images/hero3.jpg",
+      mobile: "/images/hero3-mobile.jpg",
+      alt: "Premium city apartments",
+    },
+    {
+      desktop: "/images/hero4.jpg",
+      mobile: "/images/hero4-mobile.jpg",
+      alt: "Premium city apartments",
+    },
+    {
+      desktop: "/images/hero5.jpg",
+      mobile: "/images/hero5-mobile.jpg",
+      alt: "Premium city apartments",
+    },
+  ],
   services: [
     { title: "Property Investment Consultancy", desc: "Deal analysis, strategy, and investor guidance." },
     { title: "Property Sourcing", desc: "Opportunities aligned to your criteria and yield targets." },
@@ -71,9 +98,9 @@ export const site = {
   }
 ],
   contact: {
-    email: "info@zephaniahproperties.co.uk",
-    phone: "+44 0000 000000",
-    whatsappUrl: "https://wa.me/44XXXXXXXXXX",
+    email: "jackson@zephaniahproperties.co.uk",
+    phone: "+44 7459559543",
+    whatsappUrl: "https://wa.me/447459559543",
     hours: [
       { day: "Mon", time: "09:00–18:00" },
       { day: "Tue", time: "09:00–18:00" },

@@ -1,25 +1,55 @@
+"use client";
+
+import { useState } from "react";
 import { site } from "@/content/site";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    await fetch("/", {
+      method: "POST",
+      body: new URLSearchParams(data as any).toString(),
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    });
+
+    setLoading(false);
+    setSuccess(true);
+    form.reset();
+  };
+
   return (
     <section id="contact" className="border-t">
       <div className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
+          
+          {/* Contact Info */}
           <div className="rounded-2xl border p-6 shadow-sm">
-            <p className="text-sm text-neutral-700">
+            <p className="text-sm">
               Email:{" "}
-              <a className="underline" href={`mailto:${site.contact.email}`}>
+              <a href={`mailto:${site.contact.email}`} className="underline">
                 {site.contact.email}
               </a>
             </p>
-            <p className="mt-2 text-sm text-neutral-700">Phone: {site.contact.phone}</p>
+
+            <p className="mt-2 text-sm">Phone: {site.contact.phone}</p>
 
             <h3 className="mt-6 font-medium">Opening Hours</h3>
-            <ul className="mt-2 space-y-1 text-sm text-neutral-700">
+
+            <ul className="mt-2 space-y-1 text-sm">
               {site.contact.hours.map((h) => (
-                <li key={h.day} className="flex justify-between gap-4">
+                <li key={h.day} className="flex justify-between">
                   <span>{h.day}</span>
                   <span>{h.time}</span>
                 </li>
@@ -27,27 +57,26 @@ export default function Contact() {
             </ul>
 
             <a
-              className="mt-6 inline-flex rounded-xl border px-4 py-2 text-sm hover:bg-neutral-50"
               href={site.contact.whatsappUrl}
               target="_blank"
               rel="noreferrer"
+              className="mt-6 inline-flex rounded-xl border px-4 py-2 text-sm hover:bg-neutral-50"
             >
               WhatsApp Us
             </a>
           </div>
 
+          {/* Contact Form */}
           <form
             name="contact"
-            method="POST"
-            action="/contact/success"
             data-netlify="true"
             netlify-honeypot="leave_blank"
+            onSubmit={handleSubmit}
             className="rounded-2xl border p-6 shadow-sm"
           >
-            {/* required for Netlify to identify the form name */}
             <input type="hidden" name="form-name" value="contact" />
 
-            {/* honeypot field (hide with CSS; bots will fill it) */}
+            {/* Honeypot */}
             <p className="hidden">
               <label>
                 Don’t fill this out: <input name="leave_blank" />
@@ -55,12 +84,14 @@ export default function Contact() {
             </p>
 
             <div className="grid gap-3">
+
               <input
                 name="name"
                 required
                 placeholder="Your Name"
                 className="rounded-xl border px-3 py-2"
               />
+
               <input
                 name="email"
                 type="email"
@@ -68,12 +99,14 @@ export default function Contact() {
                 placeholder="Your Email"
                 className="rounded-xl border px-3 py-2"
               />
+
               <input
                 name="subject"
                 required
                 placeholder="Subject"
                 className="rounded-xl border px-3 py-2"
               />
+
               <textarea
                 name="message"
                 required
@@ -81,12 +114,24 @@ export default function Contact() {
                 rows={5}
                 className="rounded-xl border px-3 py-2"
               />
-              <button className="rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white hover:bg-neutral-800">
-                Send Message
+
+              <button
+                disabled={loading}
+                className="rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white hover:bg-neutral-800 disabled:opacity-50"
+              >
+                {loading ? "Sending..." : "Send Message"}
               </button>
+
+              {success && (
+                <p className="text-green-600 text-sm">
+                  ✅ Message sent successfully!
+                </p>
+              )}
+
               <p className="text-xs text-neutral-500">
-                This form is protected with a honeypot to reduce spam.
+                Protected with spam filtering.
               </p>
+
             </div>
           </form>
         </div>
