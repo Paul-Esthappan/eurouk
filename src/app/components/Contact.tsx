@@ -69,17 +69,18 @@ export default function Contact() {
           {/* Contact Form */}
           <form
             name="contact"
+            method="POST"
+            action="/success"
             data-netlify="true"
-            netlify-honeypot="leave_blank"
-            onSubmit={handleSubmit}
+            netlify-honeypot="bot-field"
             className="rounded-2xl border p-6 shadow-sm"
           >
             <input type="hidden" name="form-name" value="contact" />
 
-            {/* Honeypot */}
+            {/* Honeypot spam protection */}
             <p className="hidden">
               <label>
-                Don’t fill this out: <input name="leave_blank" />
+                Don’t fill this out: <input name="bot-field" />
               </label>
             </p>
 
@@ -110,27 +111,14 @@ export default function Contact() {
               <textarea
                 name="message"
                 required
-                placeholder="Message"
                 rows={5}
+                placeholder="Message"
                 className="rounded-xl border px-3 py-2"
               />
 
-              <button
-                disabled={loading}
-                className="rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white hover:bg-neutral-800 disabled:opacity-50"
-              >
-                {loading ? "Sending..." : "Send Message"}
+              <button className="rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white hover:bg-neutral-800">
+                Send Message
               </button>
-
-              {success && (
-                <p className="text-green-600 text-sm">
-                  ✅ Message sent successfully!
-                </p>
-              )}
-
-              <p className="text-xs text-neutral-500">
-                Protected with spam filtering.
-              </p>
 
             </div>
           </form>
